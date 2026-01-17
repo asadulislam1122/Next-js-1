@@ -10,6 +10,8 @@ GitHub Repo: https://github.com/asadulislam1122/Next-js-1.git
 
 Live Site: https://my-app-two-kohl-87.vercel.app
 
+mock login\*\*\*\*EMAIL:user@gmail.com Password: 123456
+
 🚀 Implemented Features
 
 1. Landing Page (Public)
