@@ -22,7 +22,7 @@ const ItemsPage = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const res = await fetch("http://localhost:3001/api/items");
+        const res = await fetch("/api/items");
         const data = await res.json();
         setItems(data);
         setLoading(false);

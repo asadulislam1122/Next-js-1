@@ -11,7 +11,7 @@ const ItemDetailsPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/items`)
+    fetch(`/api/items`)
       .then((res) => res.json())
       .then((data) => {
         const foundItem = data.find((i) => i.id === parseInt(id));

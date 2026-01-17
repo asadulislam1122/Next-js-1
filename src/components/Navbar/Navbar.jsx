@@ -3,16 +3,17 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const Navbar = () => {
   const router = useRouter();
+  const pathname = usePathname(); // 👈 route change detect করবে
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const auth = Cookies.get("auth");
     setIsLoggedIn(!!auth);
-  }, []);
+  }, [pathname]); // 👈 route change হলেই cookie check
 
   const handleLogout = () => {
     Cookies.remove("auth");
@@ -22,6 +23,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-base-100 shadow-sm sticky top-0 z-10">
+      {/* Navbar Start */}
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -40,39 +42,51 @@ const Navbar = () => {
               />
             </svg>
           </div>
+
           <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow"
           >
             <li>
-              <Link href="/items" className="link link-hover">
-                Items
-              </Link>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/items">Items</Link>
+            </li>
+            <li>
+              <Link href="/about">About</Link>
             </li>
           </ul>
         </div>
-        <Link href="/" className="md:ml-4 md:font-bold text-blue-600 text-2xl">
-          <span className="">Next</span>Star
+
+        <Link href="/" className="md:ml-4 font-bold text-blue-600 text-2xl">
+          <span>Next</span>Star
         </Link>
       </div>
 
+      {/* Navbar Center */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link href="/items" className="link link-hover">
-              Items
-            </Link>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/items">Items</Link>
+          </li>
+          <li>
+            <Link href="/about">About</Link>
           </li>
         </ul>
       </div>
 
+      {/* Navbar End */}
       <div className="navbar-end">
         {isLoggedIn ? (
-          <button onClick={handleLogout} className="btn text-white bg-red-500">
+          <button onClick={handleLogout} className="btn bg-red-500 text-white">
             Logout
           </button>
         ) : (
-          <Link href="/login" className="btn text-white bg-blue-700">
+          <Link href="/login" className="btn bg-blue-700 text-white">
             Login
           </Link>
         )}

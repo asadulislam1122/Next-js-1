@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Readme
+Next.js Product Listing Application
+📌 Project Description
 
-## Getting Started
+This is a simple product listing application built using Next.js 15/16 (App Router). The project demonstrates basic routing, data fetching from an API, and mock authentication.
 
-First, run the development server:
+🌐 Links
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+GitHub Repo: https://github.com/asadulislam1122/Next-js-1.git
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Live Site: https://my-app-two-kohl-87.vercel.app
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+🚀 Implemented Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Landing Page (Public)
 
-## Learn More
+Public landing page
 
-To learn more about Next.js, take a look at the following resources:
+Includes 7 sections (excluding Navbar & Footer)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Navbar with links to Login and Items page
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Footer included
 
-## Deploy on Vercel
+2. Authentication (Mock Login)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Hardcoded email & password
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Authentication state stored using cookies
+
+Redirects to Items page after successful login
+
+3. Item List Page (Public)
+
+Publicly accessible
+
+Fetches item data from Express.js API / JSON
+
+Displays item name, description, price, and image
+
+4. Item Details Page (Public)
+
+Shows full details of a selected item
+
+Uses dynamic routing
